@@ -10,14 +10,27 @@
       <div class="py-14" />
 
       <v-row class="d-flex align-center justify-center">
+        <v-text-field
+          v-model="userId"
+          class="mx-auto"
+          label="User Id"
+          min-width="100"
+          outlined
+          placeholder="Enter your user id"
+          prepend-inner-icon="mdi-account"
+          type="text"
+        ></v-text-field>
+      </v-row>
+
+      <v-row class="d-flex align-center justify-center">
         <v-col cols="auto">
           <v-btn
             color="primary"
-            href="/quiz"
             min-width="228"
             rel="noopener noreferrer"
             size="x-large"
             variant="flat"
+            @click="() => $router.push('/login/' + userId)"
           >
             <v-icon icon="mdi-speedometer" size="large" start />
 
@@ -30,5 +43,7 @@
 </template>
 
 <script lang="ts" setup>
-//
+import { ref } from "vue";
+
+const userId = ref("");
 </script>
